@@ -15,11 +15,10 @@ config({ path: "./config/config.env" });
 app.use(
   cors({
     origin: [process.env.FRONTEND_URL_ONE, process.env.FRONTEND_URL_TWO],
-    method: ["GET", "POST", "DELETE", "PUT"],
+    methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
 );
-
 
 app.use(cookieParser());
 app.use(express.json());
@@ -31,6 +30,13 @@ app.use(
     tempFileDir: "/tmp/",
   })
 );
+
+// Add a basic route for the root URL
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
+
+// Define your routers
 app.use("/api/v1/message", messageRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/appointment", appointmentRouter);
@@ -38,4 +44,5 @@ app.use("/api/v1/appointment", appointmentRouter);
 dbConnection();
 
 app.use(errorMiddleware);
+
 export default app;
