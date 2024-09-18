@@ -21,17 +21,6 @@ app.use(
 );
 
 
-app.get('/', (req, res) => {
-    res.send('Server is up and running!');
-  });
-  
-
-// Start server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-  });
-
-
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
