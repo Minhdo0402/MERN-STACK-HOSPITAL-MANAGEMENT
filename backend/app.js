@@ -14,7 +14,7 @@ config({ path: "./config/config.env" });
 
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL_ONE, process.env.FRONTEND_URL_TWO],
+    origin: [process.env.FRONTEND_URL_ONE, process.env.FRONTEND_URL_TWO, "https://mern-stack-hospital-management.vercel.app"],
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"], // Allow necessary headers
