@@ -20,7 +20,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "https://mern-stack-hospital-management-sevk.vercel.app/api/v1/user/admin/me",
+          "https://mern-stack-hospital-management.onrender.com/api/v1/user/admin/me",
           {
             withCredentials: true,
           }

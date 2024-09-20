@@ -12,7 +12,7 @@ const Doctors = () => {
     const fetchDoctors = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:8000/api/v1/user/doctors",
+          "https://mern-stack-hospital-management.onrender.com/api/v1/user/doctors",
           { withCredentials: true }
         );
         setDoctors(data.doctors);
