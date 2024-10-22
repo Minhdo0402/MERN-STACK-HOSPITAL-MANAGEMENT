@@ -18,7 +18,7 @@ const Login = () => {
     try {
       await axios
         .post(
-          "https://dashboard.render.com/web/srv-crlcprbtq21c73ecmhlg/api/v1/user/login",
+          "https://mern-stack-hospital-management.vercel.app/api/v1/user/login",
           { email, password, confirmPassword, role: "Patient" },
           {
             withCredentials: true,
