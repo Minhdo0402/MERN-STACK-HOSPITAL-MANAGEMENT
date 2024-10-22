@@ -20,7 +20,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "https://mern-stack-hospital-management.onrender.com/api/v1/user/admin/me",
+          "https://dashboard.render.com/web/srv-crlcprbtq21c73ecmhlg/api/v1/user/admin/me",
           {
             withCredentials: true,
           }

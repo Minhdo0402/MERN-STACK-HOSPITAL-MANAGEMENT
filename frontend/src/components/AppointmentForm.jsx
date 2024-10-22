@@ -34,7 +34,7 @@ const AppointmentForm = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       const { data } = await axios.get(
-        "https://mern-stack-hospital-management.onrender.com/api/v1/user/doctors",
+        "https://dashboard.render.com/web/srv-crlcprbtq21c73ecmhlg/api/v1/user/doctors",
         { withCredentials: true }
       );
       setDoctors(data.doctors);
@@ -44,28 +44,10 @@ const AppointmentForm = () => {
   }, []);
   const handleAppointment = async (e) => {
     e.preventDefault();
-    const hasVisitedBool = Boolean(hasVisited);
-
-    // Ghi lại payload để gỡ lỗi
-    console.log({
-      firstName,
-      lastName,
-      email,
-      phone,
-      nic,
-      dob,
-      gender,
-      appointment_date: appointmentDate,
-      department,
-      doctor_firstName: doctorFirstName,
-      doctor_last_name: doctorLastName,
-      hasVisited: hasVisitedBool,
-      address,
-    });
-
     try {
+      const hasVisitedBool = Boolean(hasVisited);
       const { data } = await axios.post(
-        "https://mern-stack-hospital-management.onrender.com/api/v1/appointment/post",
+        "https://dashboard.render.com/web/srv-crlcprbtq21c73ecmhlg/api/v1/appointment/post",
         {
           firstName,
           lastName,
@@ -77,7 +59,7 @@ const AppointmentForm = () => {
           appointment_date: appointmentDate,
           department,
           doctor_firstName: doctorFirstName,
-          doctor_last_name: doctorLastName,
+          doctor_lastName: doctorLastName,
           hasVisited: hasVisitedBool,
           address,
         },
@@ -86,26 +68,22 @@ const AppointmentForm = () => {
           headers: { "Content-Type": "application/json" },
         }
       );
-
       toast.success(data.message);
-
-      // Đặt lại các trường
-      setFirstName("");
-      setLastName("");
-      setEmail("");
-      setPhone("");
-      setNic("");
-      setDob("");
-      setGender("");
-      setAppointmentDate("");
-      setDepartment("Pediatrics"); // Đặt lại về mặc định
-      setDoctorFirstName("");
-      setDoctorLastName("");
-      setHasVisited(false);
-      setAddress("");
+      setFirstName(""),
+        setLastName(""),
+        setEmail(""),
+        setPhone(""),
+        setNic(""),
+        setDob(""),
+        setGender(""),
+        setAppointmentDate(""),
+        setDepartment(""),
+        setDoctorFirstName(""),
+        setDoctorLastName(""),
+        setHasVisited(""),
+        setAddress("");
     } catch (error) {
-      const message = error.response?.data?.message || "Đã xảy ra lỗi";
-      toast.error(message);
+      toast.error(error.response.data.message);
     }
   };
 

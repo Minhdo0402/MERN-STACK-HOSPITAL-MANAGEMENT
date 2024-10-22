@@ -13,7 +13,7 @@ const Dashboard = () => {
     const fetchAppointments = async () => {
       try {
         const { data } = await axios.get(
-          "https://mern-stack-hospital-management.onrender.com/api/v1/appointment/getall",
+          "https://dashboard.render.com/web/srv-crlcprbtq21c73ecmhlg/api/v1/appointment/getall",
           { withCredentials: true }
         );
         setAppointments(data.appointments);
@@ -27,7 +27,7 @@ const Dashboard = () => {
   const handleUpdateStatus = async (appointmentId, status) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:8000/api/v1/appointment/update/${appointmentId}`,
+        `https://dashboard.render.com/web/srv-crlcprbtq21c73ecmhlg/api/v1/appointment/update/${appointmentId}`,
         { status },
         { withCredentials: true }
       );
@@ -47,7 +47,7 @@ const Dashboard = () => {
   const handleDelete = async (appointmentId) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:8000/api/v1/appointment/delete/${appointmentId}`,
+        `https://dashboard.render.com/web/srv-crlcprbtq21c73ecmhlg/api/v1/appointment/delete/${appointmentId}`,
         { withCredentials: true }
       );
       setAppointments((prevAppointments) =>

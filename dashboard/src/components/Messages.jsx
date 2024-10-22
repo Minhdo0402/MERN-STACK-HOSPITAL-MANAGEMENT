@@ -11,7 +11,7 @@ const Messages = () => {
     const fetchMessages = async () => {
       try {
         const { data } = await axios.get(
-          "https://mern-stack-hospital-management.onrender.com/api/v1/message/getall",
+          "https://dashboard.render.com/web/srv-crlcprbtq21c73ecmhlg/api/v1/message/getall",
           { withCredentials: true }
         );
         setMessages(data.messages);

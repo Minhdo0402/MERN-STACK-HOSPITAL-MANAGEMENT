@@ -18,7 +18,7 @@ const Login = () => {
     try {
       await axios
         .post(
-          "https://mern-stack-hospital-management.onrender.com/api/v1/user/login",
+          "https://dashboard.render.com/web/srv-crlcprbtq21c73ecmhlg/api/v1/user/login",
           { email, password, confirmPassword, role: "Admin" },
           {
             withCredentials: true,
